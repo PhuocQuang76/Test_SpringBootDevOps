@@ -28,7 +28,7 @@ public class User {
 	@Size(min=2, message="name should have atleast 2 characters.")
 	private String name;
 	
-//	@NotBlank(message="email is blank, please enter valid email address.")
+	@NotBlank(message="email is blank, please enter valid email address.")
 	@JsonProperty("email_address")
 	private String email;
 	

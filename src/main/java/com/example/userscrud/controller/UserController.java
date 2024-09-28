@@ -1,6 +1,6 @@
 package com.example.userscrud.controller;
 
-import java.net.URI;
+import    java.net.URI;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +51,19 @@ public class UserController {
 	@DeleteMapping("/{email}")
 	public void deleteUser(@PathVariable String email) {
 		userService.deleteUser(email);
+	}
+
+
+	//Delete user by name
+	@DeleteMapping("/{name}")
+	public ResponseEntity<?> deleteUserByName(@PathVariable String name) {
+		List<User> users = userService.getUserByName(name);
+		if(users.size() > 1){
+			return new ResponseEntity<>("Multiple users found !", HttpStatus.BAD_REQUEST);
+		}
+		userService.deleteUser(name);
+		return new ResponseEntity<>("User was Deleted",HttpStatus.OK);
+
 	}
 	
 	@PostMapping("/create")
