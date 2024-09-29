@@ -57,6 +57,7 @@ public class UserController {
 	//Delete user by name
 	@DeleteMapping("/deleteByName/{name}")
 	public ResponseEntity<?> deleteUserByName(@PathVariable String name) {
+		System.out.println("Deleting name ...");
 		List<User> users = userService.getUserByName(name);
 
 		if (users.size() > 1) {
