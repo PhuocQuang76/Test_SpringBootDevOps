@@ -2,6 +2,7 @@ package com.example.userscrud.service;
 
 import java.util.List;
 
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.example.userscrud.entity.User;
@@ -47,10 +48,11 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public List<User> getUserByName(String name) {
-		return null;
+		return userRepository.findByName(name);
 	}
 
 	@Override
+	@Transactional
 	public void deleteUserByName(String name) {
 		userRepository.deleteByName(name);
 	}

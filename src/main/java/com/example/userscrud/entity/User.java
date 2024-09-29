@@ -29,7 +29,7 @@ public class User {
 	private String name;
 	
 	@NotBlank(message="email is blank, please enter valid email address.")
-	@JsonProperty("email_address")
+//	@JsonProperty("email_address")
 	private String email;
 	
 	@JsonIgnore

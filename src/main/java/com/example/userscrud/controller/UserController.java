@@ -55,15 +55,19 @@ public class UserController {
 
 
 	//Delete user by name
-	@DeleteMapping("/{name}")
+	@DeleteMapping("/deleteByName/{name}")
 	public ResponseEntity<?> deleteUserByName(@PathVariable String name) {
 		List<User> users = userService.getUserByName(name);
-		if(users.size() > 1){
-			return new ResponseEntity<>("Multiple users found !", HttpStatus.BAD_REQUEST);
-		}
-		userService.deleteUser(name);
-		return new ResponseEntity<>("User was Deleted",HttpStatus.OK);
 
+		if (users.size() > 1) {
+			return new ResponseEntity<>("Multiple users found with the name " + name + "!", HttpStatus.BAD_REQUEST);
+		} else if (users.isEmpty()) {
+			return new ResponseEntity<>("User not found with the name " + name, HttpStatus.NOT_FOUND);
+		} else {
+			System.out.println("username: " + name);
+			userService.deleteUserByName(name);
+			return new ResponseEntity<>("User with name " + name + " was deleted", HttpStatus.OK);
+		}
 	}
 	
 	@PostMapping("/create")
