@@ -72,7 +72,7 @@ public class UserController {
 	
 	@PostMapping("/create")
 	public ResponseEntity<User> createUser(@Valid @RequestBody User user){
-		System.out.println("Posting new user" + user.getName());
+		System.out.println("Creating new user 2" + user.getName());
 		User savedUser = userService.createUser(user);
 		System.out.println(user.getEmail());
 		URI location = ServletUriComponentsBuilder
