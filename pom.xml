@@ -93,6 +93,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>devops-intergration</finalName>
 	</build>
 
 </project>
