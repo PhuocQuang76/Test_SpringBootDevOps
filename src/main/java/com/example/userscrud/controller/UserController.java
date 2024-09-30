@@ -71,19 +71,19 @@ public class UserController {
 		}
 	}
 	
-//	@PostMapping("/create")
-//	public ResponseEntity<User> createUser(@Valid @RequestBody User user){
-//		System.out.println("Creating new user 3" + user.getName());
-//		User savedUser = userService.createUser(user);
-//		System.out.println(user.getEmail());
-//		URI location = ServletUriComponentsBuilder
-//				.fromCurrentRequest()
-//				.path("/{email}")
-//				.buildAndExpand(savedUser.getEmail()).toUri();
-//		// returning URI
-//
-//		return ResponseEntity.created(location).build();
-//	}
+	@PostMapping("/create")
+	public ResponseEntity<User> createUser(@Valid @RequestBody User user){
+		System.out.println("Creating new user 3" + user.getName());
+		User savedUser = userService.createUser(user);
+		System.out.println(user.getEmail());
+		URI location = ServletUriComponentsBuilder
+				.fromCurrentRequest()
+				.path("/{email}")
+				.buildAndExpand(savedUser.getEmail()).toUri();
+		// returning URI
+
+		return ResponseEntity.created(location).build();
+	}
 	
 	
 	// To retrieve posts of User
