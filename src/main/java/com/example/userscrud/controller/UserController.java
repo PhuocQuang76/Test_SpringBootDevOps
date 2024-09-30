@@ -37,16 +37,16 @@ public class UserController {
 	}
 	
 	
-	@GetMapping("")
-	public List<User> getAllUsers(){
-		return userService.getAllUsers();
-	}
-	
-	@GetMapping("/{email}")
-	public User retrieveUser(@PathVariable String email) {
-		System.out.println(email);
-		return userService.getUser(email);
-	}
+//	@GetMapping("")
+//	public List<User> getAllUsers(){
+//		return userService.getAllUsers();
+//	}
+//
+//	@GetMapping("/{email}")
+//	public User retrieveUser(@PathVariable String email) {
+//		System.out.println(email);
+//		return userService.getUser(email);
+//	}
 	
 	@DeleteMapping("/{email}")
 	public void deleteUser(@PathVariable String email) {
